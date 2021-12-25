@@ -1,4 +1,4 @@
-{{- if and (not .Values.ingress.enabled) (not .Values.service.tls.enabled) }}
+{{- if and ( and (not .Values.ingress.enabled ) (eq .Values.service.type "ClusterIP") ) (not .Values.service.tls.enabled) }}
 {{- $scheme := include "harbor.component.scheme" . -}}
 apiVersion: v1
 kind: ConfigMap

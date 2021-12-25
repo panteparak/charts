@@ -1,4 +1,4 @@
-{{- if not .Values.ingress.enabled }}
+{{- if ( and (not .Values.ingress.enabled ) (eq .Values.service.type "ClusterIP") ) }}
 apiVersion: v1
 kind: Service
 metadata:
